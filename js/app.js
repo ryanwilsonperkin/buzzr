@@ -1,67 +1,77 @@
  /*global document, $, jQuery*/
 var g_names = [
-    'Heesung Ahn',
-    'Michael Ball',
-    'Trevor Baron',
-    'Jacob Barrick',
+    'Andrei Letavin',
+    'Andrew DAngelo',
+    'Andrija Jovanov',
+    'Angela Pang',
     'Anuj Bhatia',
-    'Patryk Boczon',
-    'Jonathan Bourdeau',
+    'Ben Ventresca',
+    'Benjamin Cortens',
+    'Daniel Robinson',
+    'Derek Dekroon',
+    'Derek MacDonald',
     'Eric Boyd',
+    'Erick Lucena Palmeira Silva',
+    'Felipe Santana de Luna',
+    'Heesung Ahn',
+    'Horia Stancescu',
+    'Ian Dingle',
+    'Jacob Barrick',
     'James Brooks',
-    'Nicholas Bruner',
-    'Patrick Bryan',
-    'Vanessa Carneiro Ferreira',
+    'Jason St Jacques',
+    'John Furlone',
+    'Jonathan Bourdeau',
+    'Jonathan Snowdon',
     'Justin Carvalho',
+    'Kirk Eaton',
+    'Laura Irlinger',
+    'Lawrence Wong',
+    'Luis Gustavo',
+    'Matthew Stark',
+    'Maxwell Gardiner',
+    'Michael Ball',
+    'Michael Wirth',
+    'Mitchell Reynolds',
+    'Murray Rush',
+    'Nicholas Bruner',
+    'Nicholas Molloy',
+    'Patrick Bryan',
+    'Patryk Boczon',
+    'Rhys Hall',
+    'Ryan Wilson-Perkin',
+    'Sarah Shepherd',
+    'Stephanie Worsfold',
+    'Tornike Natsvlishvili',
+    'Trevor Baron',
+    'Vanessa Carneiro Ferreira',
     'Xinwei Chen',
     'Yee Chu',
-    'Benjamin Cortens',
-    'Andrew DAngelo',
-    'Derek Dekroon',
-    'Ian Dingle',
-    'Kirk Eaton',
-    'John Furlone',
-    'Maxwell Gardiner',
-    'Rhys Hall',
-    'Laura Irlinger',
-    'Andrija Jovanov',
-    'Andrei Letavin',
-    'Erick Lucena Palmeira Silva',
-    'Derek MacDonald',
-    'Nicholas Molloy',
-    'Tornike Natsvlishvili',
-    'Luis Gustavo',
-    'Angela Pang',
-    'Mitchell Reynolds',
-    'Daniel Robinson',
-    'Murray Rush',
-    'Felipe Santana de Luna',
-    'Sarah Shepherd',
-    'Jonathan Snowdon',
-    'Jason St Jacques',
-    'Horia Stancescu',
-    'Matthew Stark',
-    'Ben Ventresca',
-    'Ryan Wilson-Perkin',
-    'Michael Wirth',
-    'Lawrence Wong',
-    'Stephanie Worsfold',
 ];
 
 function renderNamesList(names) {
     var namesList = [];
-    $.each(names, function(i,name) {
+    $.each(names, function() {
         namesList.push($('<li>', {
             'class': 'list-group-item',
-            'data-id': i,
-            'text': name,
+            'text': this,
         }));
     });
     return namesList;
 }
 
 $(document).ready(function() {
-    console.log("called");
     var $namesList = renderNamesList(g_names);
     $('#names').append($namesList);
+
+    $('#search').keyup(function() {
+        var value = $(this).val().toLowerCase();
+        $('#names>li').each(function() {
+            var name = $(this).text().toLowerCase();
+            if (name.indexOf(value) !== -1) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    });
 });

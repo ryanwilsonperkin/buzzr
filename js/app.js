@@ -48,6 +48,7 @@ var g_names = [
     'Yee Chu',
 ];
 
+// Given a list of names, render a list of elements.
 function renderNamesList(names) {
     var namesList = [];
     $.each(names, function() {
@@ -62,9 +63,12 @@ function renderNamesList(names) {
 }
 
 $(document).ready(function() {
+
+    // Load tenant names into list.
     var $namesList = renderNamesList(g_names);
     $('#names').append($namesList);
 
+    // Filter names while typing in seach box.
     $('#search').keyup(function() {
         var value = $(this).val().toLowerCase();
         $('#names>a').each(function() {
@@ -77,6 +81,7 @@ $(document).ready(function() {
         });
     });
 
+    // Configure modal for user data.
     $('#buzz-modal').on('show.bs.modal', function(e) {
         var $trigger = $(e.relatedTarget);
         var name = $trigger.text();

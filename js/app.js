@@ -51,8 +51,10 @@ var g_names = [
 function renderNamesList(names) {
     var namesList = [];
     $.each(names, function() {
-        namesList.push($('<li>', {
+        namesList.push($('<a>', {
             'class': 'list-group-item',
+            'href': '#buzz-modal',
+            'data-toggle': 'modal',
             'text': this,
         }));
     });
@@ -65,7 +67,7 @@ $(document).ready(function() {
 
     $('#search').keyup(function() {
         var value = $(this).val().toLowerCase();
-        $('#names>li').each(function() {
+        $('#names>a').each(function() {
             var name = $(this).text().toLowerCase();
             if (name.indexOf(value) !== -1) {
                 $(this).show();

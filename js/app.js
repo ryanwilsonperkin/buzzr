@@ -76,4 +76,10 @@ $(document).ready(function() {
             }
         });
     });
+
+    $('#buzz-modal').on('show.bs.modal', function(e) {
+        var $trigger = $(e.relatedTarget);
+        var name = $trigger.text();
+        $(this).find('.modal-title').text('Buzzing ' + name);
+    });
 });

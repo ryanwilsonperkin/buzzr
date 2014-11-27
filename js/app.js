@@ -97,9 +97,14 @@ $(document).ready(function() {
         var $trigger = $(e.relatedTarget);
         var first_name = $trigger.data('firstName');
         var last_name = $trigger.data('lastName');
+        var full_name = first_name + ' ' + last_name;
+        var $success = $(this).find('#success');
+        $success.find('h2').text(full_name + ' has buzzed you in.');
+        $success.find('p').text('Please proceed to room number 42');
+        $success.hide();
         $(this).find('img').hide();
         $(this).find('#loading-gif').show();
-        $(this).find('.modal-title').text('Buzzing ' + first_name + ' ' + last_name);
+        $(this).find('.modal-title').text('Buzzing ' + full_name);
     });
 
     // Configure modal buttons to trigger placeholders.
@@ -107,5 +112,11 @@ $(document).ready(function() {
         var type = $(this).data('type');
         $('#buzz-modal img').hide();
         $('#' + type + '-placeholder').fadeIn();
+    });
+
+    // Configure modal buttons to trigger success.
+    $('#buzz-modal .trigger-success').click(function() {
+        $('#loading-gif').hide();
+        $('#success').fadeIn();
     });
 });

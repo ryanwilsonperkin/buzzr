@@ -34,6 +34,7 @@
                 <div class="form-group">
                   <label for "search">Search</label>
                   <input type="text" class="form-control" id="search" placeholder="John Smith">
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#listening-modal">Voice Search</button>
                 </div>
               </form>
             </div>
@@ -63,7 +64,7 @@
               <span class="glyphicon glyphicon-ok-circle"> </span>
               <h2></h2>
               <p></p>
-            </span>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default trigger" data-type="sms">Message</button>
@@ -71,6 +72,19 @@
             <button type="button" class="btn btn-default trigger" data-type="video">Video</button>
             <button type="button" class="btn btn-default trigger-success">Success</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Hangup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="listening-modal" tabindex="-1" role="dialog" aria-labelledby="listening-modal-label" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="listening-modal-label">Listening...</h4>
+          </div>
+          <div class="modal-body">
+            <img id="listening" class="img-responsive center-block" src="img/listening.png">
           </div>
         </div>
       </div>

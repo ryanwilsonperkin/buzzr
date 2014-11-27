@@ -49,10 +49,18 @@
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             <h4 class="modal-title" id="buzz-modal-label">Buzzing</h4>
           </div>
-          <div class="modal-body text-center">
-            <img id="loading-gif" src="img/loading.gif" alt="Loading...">
+          <div class="modal-body">
+            <img id="loading-gif" class="img-responsive center-block" src="img/loading.gif" alt="Loading...">
+            <img id="sms-placeholder" class="img-responsive center-block" src="img/sms-placeholder.png" alt="SMS">
+            <img id="call-placeholder" class="img-responsive center-block"  src="img/call-placeholder.png" alt="Call">
+            <img id="video-placeholder" class="img-responsive center-block"  src="img/video-placeholder.png" alt="Video">
+            <img id="success" class="img-responsive"  src="img/success.png" alt="Success">
           </div>
           <div class="modal-footer">
+            <button type="button" class="btn btn-default trigger" data-type="sms">Message</button>
+            <button type="button" class="btn btn-default trigger" data-type="call">Call</button>
+            <button type="button" class="btn btn-default trigger" data-type="video">Video</button>
+            <button type="button" class="btn btn-default trigger-success">Success</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Hangup</button>
           </div>
         </div>

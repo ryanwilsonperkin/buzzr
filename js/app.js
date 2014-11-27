@@ -97,6 +97,15 @@ $(document).ready(function() {
         var $trigger = $(e.relatedTarget);
         var first_name = $trigger.data('firstName');
         var last_name = $trigger.data('lastName');
+        $(this).find('img').hide();
+        $(this).find('#loading-gif').show();
         $(this).find('.modal-title').text('Buzzing ' + first_name + ' ' + last_name);
+    });
+
+    // Configure modal buttons to trigger placeholders.
+    $('#buzz-modal .trigger').click(function() {
+        var type = $(this).data('type');
+        $('#buzz-modal img').hide();
+        $('#' + type + '-placeholder').fadeIn();
     });
 });

@@ -65,6 +65,8 @@ function renderNamesList(names) {
             'class': 'list-group-item',
             'href': '#buzz-modal',
             'data-toggle': 'modal',
+            'data-first-name': this.first_name,
+            'data-last-name': this.last_name,
             'text': this.last_name + ', ' + this.first_name,
         }));
     });
@@ -93,7 +95,8 @@ $(document).ready(function() {
     // Configure modal for user data.
     $('#buzz-modal').on('show.bs.modal', function(e) {
         var $trigger = $(e.relatedTarget);
-        var name = $trigger.text();
-        $(this).find('.modal-title').text('Buzzing ' + name);
+        var first_name = $trigger.data('firstName');
+        var last_name = $trigger.data('lastName');
+        $(this).find('.modal-title').text('Buzzing ' + first_name + ' ' + last_name);
     });
 });
